@@ -6,18 +6,20 @@
     <title>Mental&Saúde - Saúde Mental para Crianças e Adolescentes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#57B5E7',secondary:'#F8FCFF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#2c4156',secondary:'#a7cbbf',olive:'#9eb458',pastel:'#f2e581',beige:'#efede3'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'},fontFamily:{'bree':['Bree Serif','serif'],'poppins':['Poppins','sans-serif']}}}}</script>
     <style>
         :where([class^="ri-"])::before { content: "\f3c2"; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         .hero-section {
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.95) 40%, rgba(255, 255, 255, 0.7) 70%, rgba(255, 255, 255, 0.4) 100%), url('img/hero-background.jpg');
+            background-image: linear-gradient(90deg, rgba(44,65,86,0.95) 50%, rgba(44,65,86,0.8) 100%), url('img/hero-background.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -78,23 +80,25 @@
         }
     </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-beige text-gray-800">
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+    <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-sm z-50">
         <div class="container mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center">
-                <a href="#" class="text-3xl font-['Pacifico'] text-primary">Mental&Saúde</a>
+                <a href="#" class="flex items-center">
+                    <img src="img/logo3.png" alt="Mental&Saúde" class="h-16 w-auto">
+                </a>
             </div>
             
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#quem-somos" class="text-gray-700 hover:text-primary font-medium transition">Quem Somos</a>
-                <a href="#solucao" class="text-gray-700 hover:text-primary font-medium transition">Solução</a>
-                <a href="#beneficios" class="text-gray-700 hover:text-primary font-medium transition">Benefícios</a>
-                <a href="#contato" class="text-gray-700 hover:text-primary font-medium transition">Contato</a>
+                <a href="#quem-somos" class="text-primary hover:text-olive font-medium transition-colors">Quem Somos</a>
+                <a href="#solucao" class="text-primary hover:text-olive font-medium transition-colors">Solução</a>
+                <a href="#beneficios" class="text-primary hover:text-olive font-medium transition-colors">Benefícios</a>
+                <a href="#contato" class="text-primary hover:text-olive font-medium transition-colors">Contato</a>
             </nav>
             
             <div>
-                <a href="#contato" class="hidden md:inline-block bg-primary text-white px-6 py-2 font-medium !rounded-button whitespace-nowrap hover:bg-opacity-90 transition">Solicite Orçamento</a>
+                <a href="#contato" class="hidden md:inline-block bg-pastel text-primary px-6 py-2 font-medium !rounded-button whitespace-nowrap hover:bg-olive hover:text-white transition-all">Solicite Orçamento</a>
                 <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-button">
                     <i class="ri-menu-line ri-lg"></i>
                 </button>
@@ -108,7 +112,7 @@
                 <a href="#solucao" class="text-gray-700 py-2 border-b border-gray-100">Solução</a>
                 <a href="#beneficios" class="text-gray-700 py-2 border-b border-gray-100">Benefícios</a>
                 <a href="#contato" class="text-gray-700 py-2 border-b border-gray-100">Contato</a>
-                <a href="#contato" class="bg-primary text-white px-6 py-2 text-center font-medium !rounded-button whitespace-nowrap">Solicite Orçamento</a>
+                <a href="#contato" class="bg-pastel text-primary px-6 py-2 text-center font-medium !rounded-button whitespace-nowrap hover:bg-olive hover:text-white transition-all">Solicite Orçamento</a>
             </div>
         </div>
     </header>
@@ -117,52 +121,53 @@
     <section class="hero-section pt-28 pb-16 md:pt-40 md:pb-24">
         <div class="container mx-auto px-4 w-full">
             <div class="max-w-2xl">
-                <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-6">Transformando a saúde mental de crianças e adolescentes</h1>
-                <p class="text-lg md:text-xl text-gray-600 mb-8">Avaliações psicológicas digitais inovadoras para escolas e famílias, promovendo bem-estar e melhor desempenho escolar.</p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#contato" class="bg-primary text-white px-8 py-3 font-medium !rounded-button text-center whitespace-nowrap hover:bg-opacity-90 transition">Solicite seu Orçamento</a>
-                    <a href="#solucao" class="border-2 border-primary text-primary px-8 py-3 font-medium !rounded-button text-center whitespace-nowrap hover:bg-primary hover:bg-opacity-10 transition">Conheça nossa Solução</a>
+                <h1 class="font-bree text-3xl md:text-5xl font-bold text-white mb-6" data-aos="fade-up">Transformando a saúde mental de crianças e adolescentes</h1>
+                <p class="text-lg md:text-xl text-white/90 mb-8" data-aos="fade-up" data-aos-delay="150">Avaliações psicológicas digitais inovadoras para escolas e famílias, promovendo bem-estar e melhor desempenho escolar.</p>
+                <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#contato" class="bg-pastel text-primary px-8 py-3 font-medium !rounded-button text-center whitespace-nowrap hover:bg-olive hover:text-white transition-all">Solicite seu Orçamento</a>
+                    <a href="#solucao" class="border-2 border-pastel text-white px-8 py-3 font-medium !rounded-button text-center whitespace-nowrap hover:bg-pastel hover:text-primary transition-all">Conheça nossa Solução</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Quem Somos -->
-    <section id="quem-somos" class="py-16 bg-gray-50">
+    <section id="quem-somos" class="py-16 bg-secondary relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-olive/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Quem Somos</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">Uma equipe multidisciplinar dedicada a promover saúde mental e aprendizagem através de soluções tecnológicas inovadoras.</p>
+                <h2 class="font-bree text-3xl md:text-4xl font-bold text-primary mb-4" data-aos="fade-up">Quem Somos</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="150">Uma equipe multidisciplinar dedicada a promover saúde mental e aprendizagem através de soluções tecnológicas inovadoras.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
-                        <i class="ri-heart-pulse-line ri-xl text-primary"></i>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 flex items-center justify-center bg-olive/10 rounded-full mb-4">
+                        <i class="ri-heart-pulse-line ri-xl text-olive"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Nossa Missão</h3>
+                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">Nossa Missão</h3>
                     <p class="text-gray-600">Promover o bem-estar emocional e o desenvolvimento saudável de crianças e adolescentes através de avaliações psicológicas acessíveis e precisas.</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
-                        <i class="ri-eye-line ri-xl text-primary"></i>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="150">
+                    <div class="w-16 h-16 flex items-center justify-center bg-olive/10 rounded-full mb-4">
+                        <i class="ri-eye-line ri-xl text-olive"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Nossa Visão</h3>
+                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">Nossa Visão</h3>
                     <p class="text-gray-600">Ser referência em soluções digitais para saúde mental infantojuvenil, transformando a forma como escolas e famílias abordam o desenvolvimento emocional.</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
-                        <i class="ri-award-line ri-xl text-primary"></i>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-olive/10 rounded-full mb-4">
+                        <i class="ri-award-line ri-xl text-olive"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Nossos Valores</h3>
+                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">Nossos Valores</h3>
                     <p class="text-gray-600">Ética, inovação, empatia, rigor científico e compromisso com o desenvolvimento integral das crianças e adolescentes.</p>
                 </div>
             </div>
             
-            <div class="bg-white p-8 rounded-lg shadow-sm">
-                <h3 class="text-2xl font-semibold mb-6 text-center">Nossa Equipe Multidisciplinar</h3>
+            <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up">
+                <h3 class="font-bree text-2xl font-semibold text-primary mb-6 text-center">Nossa Equipe Multidisciplinar</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="text-center">
                         <div class="w-24 h-24 mx-auto rounded-full bg-gray-200 mb-4 overflow-hidden">
@@ -212,43 +217,44 @@
     </section>
 
     <!-- Problema -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-beige relative overflow-hidden">
+        <div class="absolute left-0 top-1/2 w-96 h-96 bg-olive/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Desafios que Enfrentamos</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">Muitas crianças e adolescentes enfrentam desafios emocionais e comportamentais que afetam seu desempenho escolar e bem-estar.</p>
+                <h2 class="font-bree text-3xl md:text-4xl font-bold text-primary mb-4" data-aos="fade-up">Desafios que Enfrentamos</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="150">Muitas crianças e adolescentes enfrentam desafios emocionais e comportamentais que afetam seu desempenho escolar e bem-estar.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="0">
                     <div class="w-16 h-16 flex items-center justify-center bg-yellow-100 rounded-full mb-4">
                         <i class="ri-focus-3-line ri-xl text-yellow-500"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">TDAH</h3>
+                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">TDAH</h3>
                     <p class="text-gray-600">Dificuldades de concentração e hiperatividade que impactam o aprendizado e as relações sociais.</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="150">
                     <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
                         <i class="ri-mental-health-line ri-xl text-blue-500"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Ansiedade</h3>
+                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">Ansiedade</h3>
                     <p class="text-gray-600">Preocupações excessivas e medos que interferem na participação escolar e no desenvolvimento social.</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-16 h-16 flex items-center justify-center bg-red-100 rounded-full mb-4">
                         <i class="ri-emotion-unhappy-line ri-xl text-red-500"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Estresse</h3>
+                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">Estresse</h3>
                     <p class="text-gray-600">Pressões acadêmicas e sociais que causam sobrecarga emocional e problemas de comportamento.</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="450">
                     <div class="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-full mb-4">
                         <i class="ri-emotion-sad-line ri-xl text-purple-500"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Depressão</h3>
+                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">Depressão</h3>
                     <p class="text-gray-600">Tristeza persistente e perda de interesse que afetam o desempenho escolar e o bem-estar geral.</p>
                 </div>
             </div>
@@ -713,7 +719,7 @@
     <!-- CTA Banner -->
     <section class="py-16 bg-primary bg-opacity-10">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-6">Transforme sua escola com a Mental&Saúde</h2>
+            <h2 class="text-3xl font-bold mb-6">Transforme sua escola com a <img src="img/logo3.png" alt="Mental&Saúde" class="h-8 w-auto inline-block align-middle ml-2"></h2>
             <p class="text-gray-600 max-w-3xl mx-auto mb-8">Promova o bem-estar emocional e o desenvolvimento integral de crianças e adolescentes com nossa solução inovadora.</p>
             <a href="#contato" class="bg-primary text-white px-8 py-3 font-medium !rounded-button inline-block whitespace-nowrap hover:bg-opacity-90 transition">Solicite seu orçamento!</a>
         </div>
@@ -724,7 +730,9 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 inline-block">Mental&Saúde</a>
+                    <a href="#" class="inline-block mb-4">
+                        <img src="img/logo3.png" alt="Mental&Saúde" class="h-10 w-auto">
+                    </a>
                     <p class="text-gray-400 mb-4">Pioneira em saúde mental para crianças e adolescentes, transformando vidas através da tecnologia e da ciência.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white transition">
@@ -877,6 +885,15 @@
                     }
                 });
             }
+        });
+    </script>
+    
+    <script id="aos-init-script">
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
         });
     </script>
 </body>
