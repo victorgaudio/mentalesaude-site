@@ -78,15 +78,26 @@
             border-width: 0 2px 2px 0;
             transform: rotate(45deg);
         }
+        
+        .logo-container {
+            transform: translateX(40px);
+        }
+        
+        @media (min-width: 768px) {
+            .logo-container {
+                transform: translateX(0px);
+                margin-left: 2rem !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-beige text-gray-800">
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-sm z-50">
-        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center">
+        <div class="mx-auto px-1 md:px-4 py-3 flex items-center justify-between md:container" style="overflow: visible;">
+            <div class="flex items-center ml-12 md:ml-8 logo-container">
                 <a href="#" class="flex items-center">
-                    <img src="img/logo3.png" alt="Mental&Saúde" class="h-16 w-auto">
+                    <img src="img/logomes.png" alt="Mental&Saúde" class="h-20 w-auto transition-transform" style="transform: scale(2);">
                 </a>
             </div>
             
@@ -719,7 +730,7 @@
     <!-- CTA Banner -->
     <section class="py-16 bg-primary bg-opacity-10">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-6">Transforme sua escola com a <img src="img/logo3.png" alt="Mental&Saúde" class="h-8 w-auto inline-block align-middle ml-2"></h2>
+            <h2 class="text-3xl font-bold mb-6">Transforme sua escola com a mentalesaúde</h2>
             <p class="text-gray-600 max-w-3xl mx-auto mb-8">Promova o bem-estar emocional e o desenvolvimento integral de crianças e adolescentes com nossa solução inovadora.</p>
             <a href="#contato" class="bg-primary text-white px-8 py-3 font-medium !rounded-button inline-block whitespace-nowrap hover:bg-opacity-90 transition">Solicite seu orçamento!</a>
         </div>
@@ -731,7 +742,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <a href="#" class="inline-block mb-4">
-                        <img src="img/logo3.png" alt="Mental&Saúde" class="h-10 w-auto">
+                        <img src="img/logomes.png" alt="Mental&Saúde" class="h-10 w-auto">
                     </a>
                     <p class="text-gray-400 mb-4">Pioneira em saúde mental para crianças e adolescentes, transformando vidas através da tecnologia e da ciência.</p>
                     <div class="flex space-x-4">
