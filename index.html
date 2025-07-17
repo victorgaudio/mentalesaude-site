@@ -4,361 +4,370 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental&Saúde - Saúde Mental para Crianças e Adolescentes</title>
+    <meta name="description" content="Avaliações psicológicas digitais inovadoras para escolas e famílias, promovendo bem-estar e melhor desempenho escolar.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#2c4156',secondary:'#a7cbbf',olive:'#9eb458',pastel:'#f2e581',beige:'#efede3'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'},fontFamily:{'bree':['Bree Serif','serif'],'poppins':['Poppins','sans-serif']}}}}</script>
-    <style>
-        :where([class^="ri-"])::before { content: "\f3c2"; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .hero-section {
-            background-image: linear-gradient(90deg, rgba(44,65,86,0.95) 50%, rgba(44,65,86,0.8) 100%), url('img/hero-background.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .custom-checkbox {
-            position: relative;
-            padding-left: 35px;
-            cursor: pointer;
-            user-select: none;
-        }
-        
-        .custom-checkbox input {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-        }
-        
-        .checkmark {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 24px;
-            width: 24px;
-            background-color: #fff;
-            border: 2px solid #e2e8f0;
-            border-radius: 4px;
-        }
-        
-        .custom-checkbox:hover input ~ .checkmark {
-            border-color: #57B5E7;
-        }
-        
-        .custom-checkbox input:checked ~ .checkmark {
-            background-color: #57B5E7;
-            border-color: #57B5E7;
-        }
-        
-        .checkmark:after {
-            content: "";
-            position: absolute;
-            display: none;
-        }
-        
-        .custom-checkbox input:checked ~ .checkmark:after {
-            display: block;
-        }
-        
-        .custom-checkbox .checkmark:after {
-            left: 8px;
-            top: 4px;
-            width: 6px;
-            height: 12px;
-            border: solid white;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
-        }
-        
-        .logo-container {
-            transform: translateX(40px);
-        }
-        
-        @media (min-width: 768px) {
-            .logo-container {
-                transform: translateX(0px);
-                margin-left: 2rem !important;
-            }
-        }
-    </style>
 </head>
-<body class="bg-beige text-gray-800">
+<body>
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-sm z-50">
-        <div class="mx-auto px-1 md:px-4 py-3 flex items-center justify-between md:container" style="overflow: visible;">
-            <div class="flex items-center ml-12 md:ml-8 logo-container">
-                <a href="#" class="flex items-center">
-                    <img src="img/logomes.png" alt="Mental&Saúde" class="h-20 w-auto transition-transform" style="transform: scale(2);">
-                </a>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <span class="logo-text">Mental<span class="logo-accent">&</span>Saúde</span>
             </div>
-            
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#quem-somos" class="text-primary hover:text-olive font-medium transition-colors">Quem Somos</a>
-                <a href="#solucao" class="text-primary hover:text-olive font-medium transition-colors">Solução</a>
-                <a href="#beneficios" class="text-primary hover:text-olive font-medium transition-colors">Benefícios</a>
-                <a href="#contato" class="text-primary hover:text-olive font-medium transition-colors">Contato</a>
-            </nav>
-            
-            <div>
-                <a href="#contato" class="hidden md:inline-block bg-pastel text-primary px-6 py-2 font-medium !rounded-button whitespace-nowrap hover:bg-olive hover:text-white transition-all">Solicite Orçamento</a>
-                <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-button">
-                    <i class="ri-menu-line ri-lg"></i>
-                </button>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#quem-somos" class="nav__link">Quem Somos</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#solucao" class="nav__link">Solução</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#beneficios" class="nav__link">Benefícios</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contato" class="nav__link">Contato</a>
+                    </li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
             </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-                <a href="#quem-somos" class="text-gray-700 py-2 border-b border-gray-100">Quem Somos</a>
-                <a href="#solucao" class="text-gray-700 py-2 border-b border-gray-100">Solução</a>
-                <a href="#beneficios" class="text-gray-700 py-2 border-b border-gray-100">Benefícios</a>
-                <a href="#contato" class="text-gray-700 py-2 border-b border-gray-100">Contato</a>
-                <a href="#contato" class="bg-pastel text-primary px-6 py-2 text-center font-medium !rounded-button whitespace-nowrap hover:bg-olive hover:text-white transition-all">Solicite Orçamento</a>
+            <div class="nav__actions">
+                <a href="#contato" class="btn btn--primary">Solicite Orçamento</a>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line"></i>
+                </div>
             </div>
-        </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section pt-28 pb-16 md:pt-40 md:pb-24">
-        <div class="container mx-auto px-4 w-full">
-            <div class="max-w-2xl">
-                <h1 class="font-bree text-3xl md:text-5xl font-bold text-white mb-6" data-aos="fade-up">Transformando a saúde mental de crianças e adolescentes</h1>
-                <p class="text-lg md:text-xl text-white/90 mb-8" data-aos="fade-up" data-aos-delay="150">Avaliações psicológicas digitais inovadoras para escolas e famílias, promovendo bem-estar e melhor desempenho escolar.</p>
-                <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
-                    <a href="#contato" class="bg-pastel text-primary px-8 py-3 font-medium !rounded-button text-center whitespace-nowrap hover:bg-olive hover:text-white transition-all">Solicite seu Orçamento</a>
-                    <a href="#solucao" class="border-2 border-pastel text-white px-8 py-3 font-medium !rounded-button text-center whitespace-nowrap hover:bg-pastel hover:text-primary transition-all">Conheça nossa Solução</a>
+    <section class="hero section--enhanced" id="hero">
+        <div class="hero__bg">
+            <div class="hero__shape hero__shape--1 morphing-shape"></div>
+            <div class="hero__shape hero__shape--2 liquid-shape"></div>
+            <div class="hero__shape hero__shape--3"></div>
+            <div class="particle-bg">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+        <div class="hero__visual-element hero__visual-element--1"></div>
+        <div class="hero__visual-element hero__visual-element--2"></div>
+        <div class="hero__container container">
+            <div class="hero__content" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="hero__title">
+                    <span class="hero__title--highlight">Transformando</span> a saúde mental de 
+                    <span class="hero__title--gradient">crianças e adolescentes</span>
+                </h1>
+                <p class="hero__description" data-aos="fade-up" data-aos-delay="200">
+                    Avaliações psicológicas digitais inovadoras para escolas e famílias, 
+                    promovendo bem-estar e melhor desempenho escolar.
+                </p>
+                <div class="hero__actions" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#contato" class="btn btn--primary btn--large btn--enhanced glow-effect pulse-element">
+                        <span>Solicite seu Orçamento</span>
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                    <a href="#solucao" class="btn btn--secondary btn--large">
+                        <span>Conheça nossa Solução</span>
+                    </a>
                 </div>
+            </div>
+            <div class="hero__image" data-aos="fade-left" data-aos-delay="400">
+                <img src="assets/images/hero-family.jpg" alt="Família feliz representando saúde mental" class="hero__img">
+                <div class="hero__floating hero__floating--1"></div>
+                <div class="hero__floating hero__floating--2"></div>
+                <div class="hero__floating hero__floating--3"></div>
             </div>
         </div>
     </section>
 
     <!-- Quem Somos -->
-    <section id="quem-somos" class="py-16 bg-secondary relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-olive/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-bree text-3xl md:text-4xl font-bold text-primary mb-4" data-aos="fade-up">Quem Somos</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="150">Uma equipe multidisciplinar dedicada a promover saúde mental e aprendizagem através de soluções tecnológicas inovadoras.</p>
+    <section class="about" id="quem-somos">
+        <div class="about__bg">
+            <div class="about__pattern"></div>
+        </div>
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">Quem Somos</h2>
+                <p class="section__description">
+                    Uma equipe multidisciplinar dedicada a promover saúde mental e aprendizagem 
+                    através de soluções tecnológicas inovadoras.
+                </p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-16 h-16 flex items-center justify-center bg-olive/10 rounded-full mb-4">
-                        <i class="ri-heart-pulse-line ri-xl text-olive"></i>
+
+            <div class="about__grid stagger-animation">
+                <div class="about__card about__card--mission interactive-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="about__card-icon">
+                        <div class="icon icon--heart"></div>
                     </div>
-                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">Nossa Missão</h3>
-                    <p class="text-gray-600">Promover o bem-estar emocional e o desenvolvimento saudável de crianças e adolescentes através de avaliações psicológicas acessíveis e precisas.</p>
+                    <h3 class="about__card-title">Nossa Missão</h3>
+                    <p class="about__card-text">
+                        Promover o bem-estar emocional e o desenvolvimento saudável de crianças e 
+                        adolescentes através de avaliações psicológicas acessíveis e precisas.
+                    </p>
                 </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="150">
-                    <div class="w-16 h-16 flex items-center justify-center bg-olive/10 rounded-full mb-4">
-                        <i class="ri-eye-line ri-xl text-olive"></i>
+
+                <div class="about__card about__card--vision interactive-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="about__card-icon">
+                        <div class="icon icon--eye"></div>
                     </div>
-                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">Nossa Visão</h3>
-                    <p class="text-gray-600">Ser referência em soluções digitais para saúde mental infantojuvenil, transformando a forma como escolas e famílias abordam o desenvolvimento emocional.</p>
+                    <h3 class="about__card-title">Nossa Visão</h3>
+                    <p class="about__card-text">
+                        Ser referência em soluções digitais para saúde mental infantojuvenil, 
+                        transformando a forma como escolas e famílias abordam o desenvolvimento emocional.
+                    </p>
                 </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 flex items-center justify-center bg-olive/10 rounded-full mb-4">
-                        <i class="ri-award-line ri-xl text-olive"></i>
+
+                <div class="about__card about__card--values interactive-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="about__card-icon">
+                        <div class="icon icon--star"></div>
                     </div>
-                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">Nossos Valores</h3>
-                    <p class="text-gray-600">Ética, inovação, empatia, rigor científico e compromisso com o desenvolvimento integral das crianças e adolescentes.</p>
+                    <h3 class="about__card-title">Nossos Valores</h3>
+                    <p class="about__card-text">
+                        Ética, inovação, empatia, rigor científico e compromisso com o 
+                        desenvolvimento integral das crianças e adolescentes.
+                    </p>
                 </div>
             </div>
-            
-            <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up">
-                <h3 class="font-bree text-2xl font-semibold text-primary mb-6 text-center">Nossa Equipe Multidisciplinar</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="text-center">
-                        <div class="w-24 h-24 mx-auto rounded-full bg-gray-200 mb-4 overflow-hidden">
-                            <img src="img/Hevandro-Campos-2.png" alt="Hevandro Campos" class="w-full h-full object-cover">
+
+            <!-- Equipe -->
+            <div class="team" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="team__title">Nossa Equipe Multidisciplinar</h3>
+                <div class="team__grid">
+                    <div class="team__member" data-aos="flip-left" data-aos-delay="100">
+                        <div class="team__avatar">
+                            <div class="team__avatar-bg team__avatar-bg--1"></div>
+                            <span class="team__initial">H</span>
                         </div>
-                        <h4 class="font-semibold">Hevandro Campos</h4>
-                        <p class="text-sm text-gray-600">CEO</p>
+                        <h4 class="team__name">Hevandro Campos</h4>
+                        <p class="team__role">CEO</p>
                     </div>
-                    <div class="text-center">
-                        <div class="w-24 h-24 mx-auto rounded-full bg-gray-200 mb-4 overflow-hidden">
-                            <img src="img/Ricardo-Campos-2.png" alt="Ricardo Campos" class="w-full h-full object-cover">
+
+                    <div class="team__member" data-aos="flip-left" data-aos-delay="200">
+                        <div class="team__avatar">
+                            <div class="team__avatar-bg team__avatar-bg--2"></div>
+                            <span class="team__initial">R</span>
                         </div>
-                        <h4 class="font-semibold">Ricardo Campos</h4>
-                        <p class="text-sm text-gray-600">CTO</p>
+                        <h4 class="team__name">Ricardo Campos</h4>
+                        <p class="team__role">CTO</p>
                     </div>
-                    <div class="text-center">
-                        <div class="w-24 h-24 mx-auto rounded-full bg-gray-200 mb-4 overflow-hidden">
-                            <img src="img/isabela-mendes.jpg" alt="Dra. Isabela Mendes" class="w-full h-full object-cover">
+
+                    <div class="team__member" data-aos="flip-left" data-aos-delay="300">
+                        <div class="team__avatar">
+                            <div class="team__avatar-bg team__avatar-bg--3"></div>
+                            <span class="team__initial">I</span>
                         </div>
-                        <h4 class="font-semibold">Dra. Isabela Mendes</h4>
-                        <p class="text-sm text-gray-600">Psicóloga Clínica</p>
+                        <h4 class="team__name">Dra. Isabela Mendes</h4>
+                        <p class="team__role">Psicóloga Clínica</p>
                     </div>
-                    <div class="text-center">
-                        <div class="w-24 h-24 mx-auto rounded-full bg-gray-200 mb-4 overflow-hidden">
-                            <img src="img/rafael-costa.jpg" alt="Dr. Rafael Costa" class="w-full h-full object-cover">
+
+                    <div class="team__member" data-aos="flip-left" data-aos-delay="400">
+                        <div class="team__avatar">
+                            <div class="team__avatar-bg team__avatar-bg--4"></div>
+                            <span class="team__initial">R</span>
                         </div>
-                        <h4 class="font-semibold">Dr. Rafael Costa</h4>
-                        <p class="text-sm text-gray-600">Neurocientista</p>
+                        <h4 class="team__name">Dr. Rafael Costa</h4>
+                        <p class="team__role">Neurocientista</p>
                     </div>
-                    <div class="text-center">
-                        <div class="w-24 h-24 mx-auto rounded-full bg-gray-200 mb-4 overflow-hidden">
-                            <img src="img/camila-oliveira.jpg" alt="Dra. Camila Oliveira" class="w-full h-full object-cover">
+
+                    <div class="team__member" data-aos="flip-left" data-aos-delay="500">
+                        <div class="team__avatar">
+                            <div class="team__avatar-bg team__avatar-bg--5"></div>
+                            <span class="team__initial">C</span>
                         </div>
-                        <h4 class="font-semibold">Dra. Camila Oliveira</h4>
-                        <p class="text-sm text-gray-600">Psicopedagoga</p>
+                        <h4 class="team__name">Dra. Camila Oliveira</h4>
+                        <p class="team__role">Psicopedagoga</p>
                     </div>
-                    <div class="text-center">
-                        <div class="w-24 h-24 mx-auto rounded-full bg-gray-200 mb-4 overflow-hidden">
-                            <img src="img/andre-martins.jpg" alt="André Martins" class="w-full h-full object-cover">
+
+                    <div class="team__member" data-aos="flip-left" data-aos-delay="600">
+                        <div class="team__avatar">
+                            <div class="team__avatar-bg team__avatar-bg--6"></div>
+                            <span class="team__initial">A</span>
                         </div>
-                        <h4 class="font-semibold">André Martins</h4>
-                        <p class="text-sm text-gray-600">Especialista em Tecnologia</p>
+                        <h4 class="team__name">André Martins</h4>
+                        <p class="team__role">Especialista em Tecnologia</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problema -->
-    <section class="py-16 bg-beige relative overflow-hidden">
-        <div class="absolute left-0 top-1/2 w-96 h-96 bg-olive/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-bree text-3xl md:text-4xl font-bold text-primary mb-4" data-aos="fade-up">Desafios que Enfrentamos</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="150">Muitas crianças e adolescentes enfrentam desafios emocionais e comportamentais que afetam seu desempenho escolar e bem-estar.</p>
+    <!-- Desafios -->
+    <section class="challenges">
+        <div class="challenges__bg">
+            <div class="challenges__shape challenges__shape--1"></div>
+            <div class="challenges__shape challenges__shape--2"></div>
+        </div>
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title section__title--light">Desafios que Enfrentamos</h2>
+                <p class="section__description section__description--light">
+                    Muitas crianças e adolescentes enfrentam desafios emocionais e comportamentais 
+                    que afetam seu desempenho escolar e bem-estar.
+                </p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-16 h-16 flex items-center justify-center bg-yellow-100 rounded-full mb-4">
-                        <i class="ri-focus-3-line ri-xl text-yellow-500"></i>
+
+            <div class="challenges__grid">
+                <div class="challenge__card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="challenge__icon">
+                        <div class="icon icon--brain"></div>
                     </div>
-                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">TDAH</h3>
-                    <p class="text-gray-600">Dificuldades de concentração e hiperatividade que impactam o aprendizado e as relações sociais.</p>
+                    <h3 class="challenge__title">TDAH</h3>
+                    <p class="challenge__text">
+                        Dificuldades de concentração e hiperatividade que impactam o 
+                        aprendizado e as relações sociais.
+                    </p>
                 </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="150">
-                    <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
-                        <i class="ri-mental-health-line ri-xl text-blue-500"></i>
+
+                <div class="challenge__card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="challenge__icon">
+                        <div class="icon icon--anxiety"></div>
                     </div>
-                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">Ansiedade</h3>
-                    <p class="text-gray-600">Preocupações excessivas e medos que interferem na participação escolar e no desenvolvimento social.</p>
+                    <h3 class="challenge__title">Ansiedade</h3>
+                    <p class="challenge__text">
+                        Preocupações excessivas e medos que interferem na participação 
+                        escolar e no desenvolvimento social.
+                    </p>
                 </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 flex items-center justify-center bg-red-100 rounded-full mb-4">
-                        <i class="ri-emotion-unhappy-line ri-xl text-red-500"></i>
+
+                <div class="challenge__card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="challenge__icon">
+                        <div class="icon icon--stress"></div>
                     </div>
-                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">Estresse</h3>
-                    <p class="text-gray-600">Pressões acadêmicas e sociais que causam sobrecarga emocional e problemas de comportamento.</p>
+                    <h3 class="challenge__title">Estresse</h3>
+                    <p class="challenge__text">
+                        Pressões acadêmicas e sociais que causam sobrecarga emocional 
+                        e problemas de comportamento.
+                    </p>
                 </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="450">
-                    <div class="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-full mb-4">
-                        <i class="ri-emotion-sad-line ri-xl text-purple-500"></i>
+
+                <div class="challenge__card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="challenge__icon">
+                        <div class="icon icon--depression"></div>
                     </div>
-                    <h3 class="font-bree text-xl font-semibold text-primary mb-3">Depressão</h3>
-                    <p class="text-gray-600">Tristeza persistente e perda de interesse que afetam o desempenho escolar e o bem-estar geral.</p>
+                    <h3 class="challenge__title">Depressão</h3>
+                    <p class="challenge__text">
+                        Tristeza persistente e perda de interesse que afetam o 
+                        desempenho escolar e o bem-estar geral.
+                    </p>
                 </div>
             </div>
-            
-            <div class="mt-12 text-center">
-                <p class="text-gray-600 max-w-3xl mx-auto mb-6">Estes desafios muitas vezes passam despercebidos ou são diagnosticados tardiamente, impactando negativamente o desenvolvimento e o futuro das crianças e adolescentes.</p>
-                <a href="#solucao" class="text-primary font-medium inline-flex items-center">
-                    Conheça nossa solução
-                    <i class="ri-arrow-right-line ri-lg ml-1"></i>
+
+            <div class="challenges__cta" data-aos="fade-up" data-aos-delay="500">
+                <p class="challenges__cta-text">
+                    Estes desafios muitas vezes passam despercebidos ou são diagnosticados tardiamente, 
+                    impactando negativamente o desenvolvimento e o futuro das crianças e adolescentes.
+                </p>
+                <a href="#solucao" class="btn btn--primary btn--large">
+                    <span>Conheça nossa solução</span>
+                    <i class="ri-arrow-right-line"></i>
                 </a>
             </div>
         </div>
     </section>
-    <!-- Solução -->
-    <section id="solucao" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Nossa Solução</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">Uma plataforma digital inovadora que integra avaliações psicológicas validadas com tecnologia intuitiva para identificar e acompanhar a saúde mental de crianças e adolescentes.</p>
+
+    <!-- Nossa Solução -->
+    <section class="solution" id="solucao">
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">Nossa Solução</h2>
+                <p class="section__description">
+                    Uma plataforma digital inovadora que integra avaliações psicológicas validadas 
+                    com tecnologia intuitiva para identificar e acompanhar a saúde mental de 
+                    crianças e adolescentes.
+                </p>
             </div>
-            
-            <div class="flex flex-col md:flex-row items-center gap-8 mb-16">
-                <div class="md:w-1/2">
-                    <h3 class="text-2xl font-semibold mb-6">Plataforma Intuitiva</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary"></i>
+
+            <div class="solution__content">
+                <div class="solution__features" data-aos="fade-right">
+                    <h3 class="solution__subtitle">Plataforma Intuitiva</h3>
+                    <ul class="solution__list">
+                        <li class="solution__item">
+                            <div class="solution__item-icon">
+                                <div class="icon icon--check"></div>
                             </div>
-                            <p class="text-gray-600">Interface amigável e acessível para educadores, pais e profissionais de saúde</p>
+                            <span>Interface amigável e acessível para educadores, pais e profissionais de saúde</span>
                         </li>
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary"></i>
+                        <li class="solution__item">
+                            <div class="solution__item-icon">
+                                <div class="icon icon--check"></div>
                             </div>
-                            <p class="text-gray-600">Testes psicológicos validados cientificamente e adaptados para o formato digital</p>
+                            <span>Testes psicológicos validados cientificamente e adaptados para o formato digital</span>
                         </li>
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary"></i>
+                        <li class="solution__item">
+                            <div class="solution__item-icon">
+                                <div class="icon icon--check"></div>
                             </div>
-                            <p class="text-gray-600">Análise detalhada de perfil comportamental e emocional</p>
+                            <span>Análise detalhada de perfil comportamental e emocional</span>
                         </li>
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary"></i>
+                        <li class="solution__item">
+                            <div class="solution__item-icon">
+                                <div class="icon icon--check"></div>
                             </div>
-                            <p class="text-gray-600">Relatórios visuais e de fácil compreensão</p>
+                            <span>Relatórios visuais e de fácil compreensão</span>
                         </li>
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary"></i>
+                        <li class="solution__item">
+                            <div class="solution__item-icon">
+                                <div class="icon icon--check"></div>
                             </div>
-                            <p class="text-gray-600">Recomendações personalizadas baseadas em evidências científicas</p>
+                            <span>Recomendações personalizadas baseadas em evidências científicas</span>
                         </li>
                     </ul>
                 </div>
-                <div class="md:w-1/2">
-                    <div class="relative">
-                        <div class="absolute -top-4 -left-4 w-24 h-24 bg-primary bg-opacity-10 rounded-lg"></div>
-                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary bg-opacity-10 rounded-lg"></div>
-                        <div class="relative z-10 rounded-lg overflow-hidden shadow-lg">
-                            <img src="img/platform-interface.jpg" alt="Plataforma Mental&Saúde" class="w-full h-auto">
-                        </div>
-                    </div>
+
+                <div class="solution__image" data-aos="fade-left">
+                    <img src="assets/images/psychology-session.jpg" alt="Sessão de psicologia" class="solution__img">
+                    <div class="solution__floating solution__floating--1"></div>
+                    <div class="solution__floating solution__floating--2"></div>
                 </div>
             </div>
-            
-            <div class="bg-white p-8 rounded-lg shadow-sm">
-                <h3 class="text-2xl font-semibold mb-6 text-center">Como Funciona</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="text-center p-4">
-                        <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-4">
-                            <span class="text-xl font-bold text-primary">1</span>
+
+            <!-- Como Funciona -->
+            <div class="process" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="process__title">Como Funciona</h3>
+                <div class="process__steps">
+                    <div class="process__step" data-aos="fade-up" data-aos-delay="100">
+                        <div class="process__number">1</div>
+                        <div class="process__content">
+                            <h4 class="process__step-title">Avaliação</h4>
+                            <p class="process__step-text">
+                                Aplicação de testes psicológicos validados através da plataforma digital.
+                            </p>
                         </div>
-                        <h4 class="font-semibold mb-2">Avaliação</h4>
-                        <p class="text-gray-600">Aplicação de testes psicológicos validados através da plataforma digital.</p>
                     </div>
-                    
-                    <div class="text-center p-4">
-                        <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-4">
-                            <span class="text-xl font-bold text-primary">2</span>
+
+                    <div class="process__step" data-aos="fade-up" data-aos-delay="200">
+                        <div class="process__number">2</div>
+                        <div class="process__content">
+                            <h4 class="process__step-title">Análise</h4>
+                            <p class="process__step-text">
+                                Processamento dos dados e geração de relatórios detalhados e visuais.
+                            </p>
                         </div>
-                        <h4 class="font-semibold mb-2">Análise</h4>
-                        <p class="text-gray-600">Processamento dos dados e geração de relatórios detalhados e visuais.</p>
                     </div>
-                    
-                    <div class="text-center p-4">
-                        <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-4">
-                            <span class="text-xl font-bold text-primary">3</span>
+
+                    <div class="process__step" data-aos="fade-up" data-aos-delay="300">
+                        <div class="process__number">3</div>
+                        <div class="process__content">
+                            <h4 class="process__step-title">Recomendação</h4>
+                            <p class="process__step-text">
+                                Sugestões personalizadas de intervenções e acompanhamento contínuo.
+                            </p>
                         </div>
-                        <h4 class="font-semibold mb-2">Recomendação</h4>
-                        <p class="text-gray-600">Sugestões personalizadas de intervenções e acompanhamento contínuo.</p>
                     </div>
                 </div>
             </div>
@@ -366,252 +375,163 @@
     </section>
 
     <!-- Benefícios -->
-    <section id="beneficios" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Benefícios</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">Nossa solução traz múltiplos benefícios para escolas, famílias e, principalmente, para as crianças e adolescentes.</p>
+    <section class="benefits" id="beneficios">
+        <div class="benefits__bg">
+            <div class="benefits__pattern"></div>
+        </div>
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">Benefícios</h2>
+                <p class="section__description">
+                    Nossa solução traz múltiplos benefícios para escolas, famílias e, 
+                    principalmente, para as crianças e adolescentes.
+                </p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h3 class="text-xl font-semibold mb-4 flex items-center">
-                        <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3">
-                            <i class="ri-school-line text-primary"></i>
-                        </div>
-                        Para Escolas
-                    </h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <div class="w-5 h-5 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary text-xs"></i>
-                            </div>
-                            <p class="text-gray-600">Melhoria do ambiente escolar e redução de conflitos</p>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-5 h-5 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary text-xs"></i>
-                            </div>
-                            <p class="text-gray-600">Redução da evasão escolar e melhoria no desempenho acadêmico</p>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-5 h-5 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary text-xs"></i>
-                            </div>
-                            <p class="text-gray-600">Criação de um ambiente mais inclusivo e acolhedor</p>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-5 h-5 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary text-xs"></i>
-                            </div>
-                            <p class="text-gray-600">Diferencial competitivo no mercado educacional</p>
-                        </li>
+
+            <div class="benefits__grid">
+                <div class="benefit__card benefit__card--schools" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit__icon">
+                        <div class="icon icon--school"></div>
+                    </div>
+                    <h3 class="benefit__title">Para Escolas</h3>
+                    <ul class="benefit__list">
+                        <li>Melhoria do ambiente escolar e redução de conflitos</li>
+                        <li>Redução da evasão escolar e melhoria no desempenho acadêmico</li>
+                        <li>Criação de um ambiente mais inclusivo e acolhedor</li>
+                        <li>Diferencial competitivo no mercado educacional</li>
                     </ul>
                 </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h3 class="text-xl font-semibold mb-4 flex items-center">
-                        <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3">
-                            <i class="ri-home-heart-line text-primary"></i>
-                        </div>
-                        Para Famílias
-                    </h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <div class="w-5 h-5 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary text-xs"></i>
-                            </div>
-                            <p class="text-gray-600">Melhor compreensão das necessidades emocionais dos filhos</p>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-5 h-5 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary text-xs"></i>
-                            </div>
-                            <p class="text-gray-600">Orientações práticas para lidar com desafios comportamentais</p>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-5 h-5 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary text-xs"></i>
-                            </div>
-                            <p class="text-gray-600">Fortalecimento dos vínculos familiares</p>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-5 h-5 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                <i class="ri-check-line text-primary text-xs"></i>
-                            </div>
-                            <p class="text-gray-600">Acompanhamento do desenvolvimento emocional ao longo do tempo</p>
-                        </li>
+
+                <div class="benefit__card benefit__card--families" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit__icon">
+                        <div class="icon icon--family"></div>
+                    </div>
+                    <h3 class="benefit__title">Para Famílias</h3>
+                    <ul class="benefit__list">
+                        <li>Melhor compreensão das necessidades emocionais dos filhos</li>
+                        <li>Orientações práticas para lidar com desafios comportamentais</li>
+                        <li>Fortalecimento dos vínculos familiares</li>
+                        <li>Acompanhamento do desenvolvimento emocional ao longo do tempo</li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="bg-primary bg-opacity-5 p-8 rounded-lg">
-                <h3 class="text-2xl font-semibold mb-6 text-center">Impacto na Vida das Crianças e Adolescentes</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white p-5 rounded-lg shadow-sm text-center">
-                        <div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-4">
-                            <i class="ri-emotion-happy-line ri-xl text-primary"></i>
+
+            <!-- Impacto nas Crianças -->
+            <div class="impact" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="impact__title">Impacto na Vida das Crianças e Adolescentes</h3>
+                <div class="impact__grid">
+                    <div class="impact__item" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="impact__icon">
+                            <div class="icon icon--wellbeing"></div>
                         </div>
-                        <h4 class="font-semibold mb-2">Bem-estar Emocional</h4>
-                        <p class="text-gray-600 text-sm">Melhoria significativa na autoestima e regulação emocional</p>
+                        <h4 class="impact__item-title">Bem-estar Emocional</h4>
+                        <p class="impact__item-text">Melhoria significativa na autoestima e regulação emocional</p>
                     </div>
-                    
-                    <div class="bg-white p-5 rounded-lg shadow-sm text-center">
-                        <div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-4">
-                            <i class="ri-book-open-line ri-xl text-primary"></i>
+
+                    <div class="impact__item" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="impact__icon">
+                            <div class="icon icon--academic"></div>
                         </div>
-                        <h4 class="font-semibold mb-2">Desempenho Acadêmico</h4>
-                        <p class="text-gray-600 text-sm">Aumento da concentração e motivação para aprender</p>
+                        <h4 class="impact__item-title">Desempenho Acadêmico</h4>
+                        <p class="impact__item-text">Aumento da concentração e motivação para aprender</p>
                     </div>
-                    
-                    <div class="bg-white p-5 rounded-lg shadow-sm text-center">
-                        <div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-4">
-                            <i class="ri-team-line ri-xl text-primary"></i>
+
+                    <div class="impact__item" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="impact__icon">
+                            <div class="icon icon--social"></div>
                         </div>
-                        <h4 class="font-semibold mb-2">Habilidades Sociais</h4>
-                        <p class="text-gray-600 text-sm">Desenvolvimento de relações mais saudáveis com colegas e adultos</p>
+                        <h4 class="impact__item-title">Habilidades Sociais</h4>
+                        <p class="impact__item-text">Desenvolvimento de relações mais saudáveis com colegas e adultos</p>
                     </div>
-                    
-                    <div class="bg-white p-5 rounded-lg shadow-sm text-center">
-                        <div class="w-14 h-14 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-4">
-                            <i class="ri-seedling-line ri-xl text-primary"></i>
+
+                    <div class="impact__item" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="impact__icon">
+                            <div class="icon icon--growth"></div>
                         </div>
-                        <h4 class="font-semibold mb-2">Desenvolvimento Integral</h4>
-                        <p class="text-gray-600 text-sm">Base sólida para um futuro saudável e realizado</p>
+                        <h4 class="impact__item-title">Desenvolvimento Integral</h4>
+                        <p class="impact__item-text">Base sólida para um futuro saudável e realizado</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Diferenciais -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Nossos Diferenciais</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">O que torna a Mental&Saúde única no mercado de saúde mental para crianças e adolescentes.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
-                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
-                        <i class="ri-code-box-line ri-xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Integração Tecnologia e Psicologia</h3>
-                    <p class="text-gray-600">Combinamos o melhor da ciência psicológica com tecnologia de ponta para criar uma solução verdadeiramente inovadora.</p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
-                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
-                        <i class="ri-settings-line ri-xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Personalização</h3>
-                    <p class="text-gray-600">Cada criança é única, e nossa plataforma se adapta às necessidades específicas de cada usuário, oferecendo uma experiência personalizada.</p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
-                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
-                        <i class="ri-customer-service-line ri-xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Suporte Contínuo</h3>
-                    <p class="text-gray-600">Oferecemos acompanhamento e suporte técnico e científico para garantir que escolas e famílias obtenham o máximo benefício da plataforma.</p>
-                </div>
-            </div>
-            
-            <div class="bg-white p-8 rounded-lg shadow-sm">
-                <h3 class="text-2xl font-semibold mb-8 text-center">Validação Científica</h3>
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="md:w-1/2">
-                        <div class="h-64 bg-gray-100 rounded-lg overflow-hidden">
-                            <img src="img/scientific-research.jpg" alt="Pesquisa científica" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                    <div class="md:w-1/2">
-                        <h4 class="text-xl font-semibold mb-4">Baseado em Evidências</h4>
-                        <p class="text-gray-600 mb-4">Nossa plataforma utiliza instrumentos de avaliação psicológica validados cientificamente e adaptados para o formato digital com rigor metodológico.</p>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                    <i class="ri-check-line text-primary text-xs"></i>
-                                </div>
-                                <p class="text-gray-600">Parceria com universidades e centros de pesquisa</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                    <i class="ri-check-line text-primary text-xs"></i>
-                                </div>
-                                <p class="text-gray-600">Estudos de eficácia e validação contínuos</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-3 mt-1">
-                                    <i class="ri-check-line text-primary text-xs"></i>
-                                </div>
-                                <p class="text-gray-600">Conformidade com diretrizes éticas e de privacidade</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <!-- Nosso Impacto -->
+    <section class="stats">
+        <div class="stats__bg">
+            <div class="stats__shape stats__shape--1"></div>
+            <div class="stats__shape stats__shape--2"></div>
         </div>
-    </section>
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title section__title--light">Nosso Impacto</h2>
+                <p class="section__description section__description--light">
+                    Transformando a vida de crianças, adolescentes, famílias e escolas em todo o Brasil.
+                </p>
+            </div>
 
-    <!-- Impacto -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Nosso Impacto</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">Transformando a vida de crianças, adolescentes, famílias e escolas em todo o Brasil.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                    <div class="text-4xl font-bold text-primary mb-2">5.000+</div>
-                    <p class="text-gray-600">Crianças e adolescentes avaliados</p>
+            <div class="stats__grid">
+                <div class="stat__item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat__number" data-count="5000">0</div>
+                    <div class="stat__label">Crianças e adolescentes avaliados</div>
                 </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                    <div class="text-4xl font-bold text-primary mb-2">50+</div>
-                    <p class="text-gray-600">Escolas parceiras em todo o Brasil</p>
+
+                <div class="stat__item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat__number" data-count="50">0</div>
+                    <div class="stat__label">Escolas parceiras em todo o Brasil</div>
                 </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                    <div class="text-4xl font-bold text-primary mb-2">85%</div>
-                    <p class="text-gray-600">De melhoria no bem-estar emocional</p>
+
+                <div class="stat__item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat__number" data-count="85">0</div>
+                    <div class="stat__label">De melhoria no bem-estar emocional</div>
                 </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                    <div class="text-4xl font-bold text-primary mb-2">92%</div>
-                    <p class="text-gray-600">De satisfação entre educadores e pais</p>
+
+                <div class="stat__item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat__number" data-count="92">0</div>
+                    <div class="stat__label">De satisfação entre educadores e pais</div>
                 </div>
             </div>
-            
-            <div class="bg-primary bg-opacity-5 p-8 rounded-lg">
-                <h3 class="text-2xl font-semibold mb-6 text-center">Depoimentos</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-200 mr-4 overflow-hidden">
-                                <img src="img/fernanda-almeida.jpg" alt="Diretora Fernanda" class="w-full h-full object-cover">
+
+            <!-- Depoimentos -->
+            <div class="testimonials" data-aos="fade-up" data-aos-delay="500">
+                <h3 class="testimonials__title">Depoimentos</h3>
+                <div class="testimonials__grid">
+                    <div class="testimonial__card" data-aos="fade-right" data-aos-delay="100">
+                        <div class="testimonial__content">
+                            <p class="testimonial__text">
+                                "A plataforma Mental&Saúde transformou nossa abordagem à saúde emocional dos alunos. 
+                                Conseguimos identificar precocemente situações que antes passavam despercebidas e 
+                                oferecer o suporte adequado. O ambiente escolar melhorou significativamente."
+                            </p>
+                        </div>
+                        <div class="testimonial__author">
+                            <div class="testimonial__avatar">
+                                <span class="testimonial__initial">F</span>
                             </div>
-                            <div>
-                                <h4 class="font-semibold">Fernanda Almeida</h4>
-                                <p class="text-sm text-gray-600">Diretora Escolar</p>
+                            <div class="testimonial__info">
+                                <h4 class="testimonial__name">Fernanda Almeida</h4>
+                                <p class="testimonial__role">Diretora Escolar</p>
                             </div>
                         </div>
-                        <p class="text-gray-600 italic">"A plataforma Mental&Saúde transformou nossa abordagem à saúde emocional dos alunos. Conseguimos identificar precocemente situações que antes passavam despercebidas e oferecer o suporte adequado. O ambiente escolar melhorou significativamente."</p>
                     </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-200 mr-4 overflow-hidden">
-                                <img src="img/ricardo-souza.jpg" alt="Pai Ricardo" class="w-full h-full object-cover">
+
+                    <div class="testimonial__card" data-aos="fade-left" data-aos-delay="200">
+                        <div class="testimonial__content">
+                            <p class="testimonial__text">
+                                "Como pai, sempre me preocupei com o bem-estar emocional do meu filho, mas não sabia 
+                                como ajudá-lo. A avaliação da Mental&Saúde nos deu insights valiosos e orientações 
+                                práticas que fizeram toda a diferença. Hoje ele está mais feliz e confiante."
+                            </p>
+                        </div>
+                        <div class="testimonial__author">
+                            <div class="testimonial__avatar">
+                                <span class="testimonial__initial">R</span>
                             </div>
-                            <div>
-                                <h4 class="font-semibold">Ricardo Souza</h4>
-                                <p class="text-sm text-gray-600">Pai de aluno</p>
+                            <div class="testimonial__info">
+                                <h4 class="testimonial__name">Ricardo Souza</h4>
+                                <p class="testimonial__role">Pai de aluno</p>
                             </div>
                         </div>
-                        <p class="text-gray-600 italic">"Como pai, sempre me preocupei com o bem-estar emocional do meu filho, mas não sabia como ajudá-lo. A avaliação da Mental&Saúde nos deu insights valiosos e orientações práticas que fizeram toda a diferença. Hoje ele está mais feliz e confiante."</p>
                     </div>
                 </div>
             </div>
@@ -619,293 +539,156 @@
     </section>
 
     <!-- Contato -->
-    <section id="contato" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Entre em Contato</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">Estamos prontos para ajudar sua escola ou família a promover a saúde mental e o desenvolvimento integral de crianças e adolescentes.</p>
-            </div>
-            
-            <div class="flex flex-col lg:flex-row gap-8">
-                <div class="lg:w-1/2">
-                    <div class="bg-white p-8 rounded-lg shadow-sm">
-                        <h3 class="text-2xl font-semibold mb-6">Solicite um Orçamento</h3>
-                        <form>
-                            <div class="mb-4">
-                                <label for="name" class="block text-gray-700 mb-2">Nome</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Seu nome completo">
-                            </div>
-                            
-                            <div class="mb-4">
-                                <label for="email" class="block text-gray-700 mb-2">E-mail</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="seu@email.com">
-                            </div>
-                            
-                            <div class="mb-4">
-                                <label for="phone" class="block text-gray-700 mb-2">Telefone</label>
-                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="(00) 00000-0000">
-                            </div>
-                            
-                            <div class="mb-4">
-                                <label for="institution" class="block text-gray-700 mb-2">Instituição</label>
-                                <input type="text" id="institution" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nome da escola ou instituição">
-                            </div>
-                            
-                            <div class="mb-6">
-                                <label for="message" class="block text-gray-700 mb-2">Mensagem</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Como podemos ajudar?"></textarea>
-                            </div>
-                            
-                            <div class="mb-6">
-                                <label class="custom-checkbox">
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                    <span class="ml-2 text-gray-700">Concordo em receber informações sobre a Mental&Saúde</span>
-                                </label>
-                            </div>
-                            
-                            <button type="submit" class="w-full bg-primary text-white px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-opacity-90 transition">Solicite um orçamento agora!</button>
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="lg:w-1/2">
-                    <div class="bg-white p-8 rounded-lg shadow-sm mb-8">
-                        <h3 class="text-2xl font-semibold mb-6">Informações de Contato</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
-                                    <i class="ri-mail-line text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">E-mail</h4>
-                                    <p class="text-gray-600">contato@mentalesaude.com.br</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
-                                    <i class="ri-phone-line text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">Telefone</h4>
-                                    <p class="text-gray-600">(21) 99441-4873</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
-                                    <i class="ri-map-pin-line text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">Endereço</h4>
-                                    <p class="text-gray-600">Avenida Das Américas, 500 - Barra da Tijuca<br>Rio de Janeiro - Capital · Downtown<br>CEP 22640-904</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white p-8 rounded-lg shadow-sm">
-                        <h3 class="text-2xl font-semibold mb-6">Siga-nos</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full hover:bg-opacity-20 transition">
-                                <i class="ri-instagram-line text-primary ri-lg"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full hover:bg-opacity-20 transition">
-                                <i class="ri-facebook-circle-line text-primary ri-lg"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full hover:bg-opacity-20 transition">
-                                <i class="ri-linkedin-box-line text-primary ri-lg"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full hover:bg-opacity-20 transition">
-                                <i class="ri-youtube-line text-primary ri-lg"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="contact" id="contato">
+        <div class="contact__bg">
+            <div class="contact__pattern"></div>
         </div>
-    </section>
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">Entre em Contato</h2>
+                <p class="section__description">
+                    Estamos prontos para ajudar sua escola ou família a promover a saúde mental 
+                    e o desenvolvimento integral de crianças e adolescentes.
+                </p>
+            </div>
 
-    <!-- CTA Banner -->
-    <section class="py-16 bg-primary bg-opacity-10">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-6">Transforme sua escola com a mentalesaúde</h2>
-            <p class="text-gray-600 max-w-3xl mx-auto mb-8">Promova o bem-estar emocional e o desenvolvimento integral de crianças e adolescentes com nossa solução inovadora.</p>
-            <a href="#contato" class="bg-primary text-white px-8 py-3 font-medium !rounded-button inline-block whitespace-nowrap hover:bg-opacity-90 transition">Solicite seu orçamento!</a>
+            <div class="contact__content">
+                <div class="contact__form-container" data-aos="fade-right">
+                    <h3 class="contact__subtitle">Solicite um Orçamento</h3>
+                    <form class="contact__form" id="contact-form">
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Nome" required>
+                            <label class="form__label">Nome</label>
+                        </div>
+
+                        <div class="form__group">
+                            <input type="email" class="form__input" placeholder="E-mail" required>
+                            <label class="form__label">E-mail</label>
+                        </div>
+
+                        <div class="form__group">
+                            <input type="tel" class="form__input" placeholder="Telefone" required>
+                            <label class="form__label">Telefone</label>
+                        </div>
+
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Instituição">
+                            <label class="form__label">Instituição</label>
+                        </div>
+
+                        <div class="form__group">
+                            <textarea class="form__input form__textarea" placeholder="Mensagem" rows="4"></textarea>
+                            <label class="form__label">Mensagem</label>
+                        </div>
+
+                        <div class="form__checkbox">
+                            <input type="checkbox" id="consent" class="form__check" required>
+                            <label for="consent" class="form__check-label">
+                                Concordo em receber informações sobre a Mental&Saúde
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--large btn--full">
+                            <span>Solicite um orçamento agora!</span>
+                            <i class="ri-send-plane-line"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact__info" data-aos="fade-left">
+                    <h3 class="contact__subtitle">Informações de Contato</h3>
+                    
+                    <div class="contact__item">
+                        <div class="contact__icon">
+                            <div class="icon icon--email"></div>
+                        </div>
+                        <div class="contact__details">
+                            <h4 class="contact__label">E-mail</h4>
+                            <p class="contact__value">contato@mentalesaude.com.br</p>
+                        </div>
+                    </div>
+
+                    <div class="contact__item">
+                        <div class="contact__icon">
+                            <div class="icon icon--phone"></div>
+                        </div>
+                        <div class="contact__details">
+                            <h4 class="contact__label">Telefone</h4>
+                            <p class="contact__value">(21) 99441-4873</p>
+                        </div>
+                    </div>
+
+                    <div class="contact__item">
+                        <div class="contact__icon">
+                            <div class="icon icon--location"></div>
+                        </div>
+                        <div class="contact__details">
+                            <h4 class="contact__label">Endereço</h4>
+                            <p class="contact__value">
+                                Avenida Das Américas, 500 - Barra da Tijuca<br>
+                                Rio de Janeiro - Capital · Downtown<br>
+                                CEP 22640-904
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact__social">
+                        <h4 class="contact__social-title">Siga-nos</h4>
+                        <div class="social__links">
+                            <a href="#" class="social__link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="#" class="social__link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="#" class="social__link">
+                                <i class="ri-linkedin-fill"></i>
+                            </a>
+                            <a href="#" class="social__link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <a href="#" class="inline-block mb-4">
-                        <img src="img/logomes.png" alt="Mental&Saúde" class="h-10 w-auto">
-                    </a>
-                    <p class="text-gray-400 mb-4">Pioneira em saúde mental para crianças e adolescentes, transformando vidas através da tecnologia e da ciência.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="ri-instagram-line ri-lg"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="ri-facebook-circle-line ri-lg"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="ri-linkedin-box-line ri-lg"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="ri-youtube-line ri-lg"></i>
-                        </a>
+    <footer class="footer">
+        <div class="footer__bg">
+            <div class="footer__shape footer__shape--1"></div>
+            <div class="footer__shape footer__shape--2"></div>
+        </div>
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand" data-aos="fade-up">
+                    <div class="footer__logo">
+                        <span class="logo-text">Mental<span class="logo-accent">&</span>Saúde</span>
                     </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Início</a></li>
-                        <li><a href="#quem-somos" class="text-gray-400 hover:text-white transition">Quem Somos</a></li>
-                        <li><a href="#solucao" class="text-gray-400 hover:text-white transition">Solução</a></li>
-                        <li><a href="#beneficios" class="text-gray-400 hover:text-white transition">Benefícios</a></li>
-                        <li><a href="#contato" class="text-gray-400 hover:text-white transition">Contato</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Recursos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Estudos de Caso</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Materiais Educativos</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Perguntas Frequentes</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Suporte</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
-                    <p class="text-gray-400 mb-4">Receba novidades e conteúdos exclusivos sobre saúde mental infantojuvenil.</p>
-                    <form class="flex">
-                        <input type="email" placeholder="Seu e-mail" class="px-4 py-2 w-full bg-gray-700 border-none rounded-l focus:outline-none focus:ring-2 focus:ring-primary text-white text-sm">
-                        <button type="submit" class="bg-primary text-white px-4 py-2 !rounded-r-button whitespace-nowrap hover:bg-opacity-90 transition">Inscrever</button>
-                    </form>
+                    <p class="footer__description">
+                        Transforme sua escola com a Mental&Saúde. Promova o bem-estar emocional 
+                        e o desenvolvimento integral de crianças e adolescentes com nossa solução inovadora.
+                    </p>
+                    <a href="#contato" class="btn btn--primary">
+                        <span>Solicite seu orçamento!</span>
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
                 </div>
             </div>
             
-            <div class="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Mental&Saúde. Todos os direitos reservados.</p>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Política de Privacidade</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Termos de Uso</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Cookies</a>
-                </div>
+            <div class="footer__bottom">
+                <p class="footer__copy">
+                    © 2024 Mental&Saúde. Todos os direitos reservados.
+                </p>
             </div>
         </div>
     </footer>
 
-    <script id="mobile-menu-script">
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
-            // Close mobile menu when clicking on a link
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-        });
-    </script>
-    
-    <script id="smooth-scroll-script">
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80, // Adjust for header height
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
-    
-    <script id="form-validation-script">
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.querySelector('#contato form');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Basic validation
-                    const name = document.getElementById('name');
-                    const email = document.getElementById('email');
-                    const phone = document.getElementById('phone');
-                    const message = document.getElementById('message');
-                    
-                    let isValid = true;
-                    
-                    if (!name.value.trim()) {
-                        name.classList.add('border-red-500');
-                        isValid = false;
-                    } else {
-                        name.classList.remove('border-red-500');
-                    }
-                    
-                    if (!email.value.trim() || !email.value.includes('@')) {
-                        email.classList.add('border-red-500');
-                        isValid = false;
-                    } else {
-                        email.classList.remove('border-red-500');
-                    }
-                    
-                    if (!phone.value.trim()) {
-                        phone.classList.add('border-red-500');
-                        isValid = false;
-                    } else {
-                        phone.classList.remove('border-red-500');
-                    }
-                    
-                    if (!message.value.trim()) {
-                        message.classList.add('border-red-500');
-                        isValid = false;
-                    } else {
-                        message.classList.remove('border-red-500');
-                    }
-                    
-                    if (isValid) {
-                        // Form submission would go here
-                        alert('Obrigado pelo seu contato! Retornaremos em breve.');
-                        contactForm.reset();
-                    }
-                });
-            }
-        });
-    </script>
-    
-    <script id="aos-init-script">
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            offset: 100,
-            once: true
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
