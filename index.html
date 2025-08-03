@@ -93,17 +93,54 @@
         /* Carousel Styles */
         .carousel-container {
             overflow: hidden;
+            transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 0; /* Start with 0 height to avoid initial space */
+        }
+        
+        .carousel-slides {
+            height: 100%;
+            align-items: stretch;
+            line-height: 0; /* Remove any line-height that could add space */
+        }
+        
+        .carousel-slide {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 0; /* Prevent minimum height from flexbox */
+        }
+        
+        .carousel-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            width: auto;
+            display: block;
+            object-fit: contain;
         }
         
         .carousel-btn {
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
         }
         
         .carousel-container:hover .carousel-btn {
             opacity: 1;
             visibility: visible;
+        }
+        
+        .carousel-indicators {
+            transition: bottom 0.3s ease;
+        }
+        
+        .carousel-indicator {
+            transition: all 0.3s ease;
         }
         
         .carousel-indicator.active {
@@ -113,6 +150,14 @@
         
         .carousel-indicator:hover {
             background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .carousel-btn {
+                opacity: 1;
+                visibility: visible;
+            }
         }
     </style>
 </head>
@@ -325,10 +370,10 @@
                                 </div>
                                 
                                 <!-- Setas de navegação -->
-                                <button class="carousel-btn carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center shadow-md transition-all z-10">
+                                <button class="carousel-btn carousel-prev left-2 bg-white/90 hover:bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center shadow-md">
                                     <i class="ri-arrow-left-line"></i>
                                 </button>
-                                <button class="carousel-btn carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center shadow-md transition-all z-10">
+                                <button class="carousel-btn carousel-next right-2 bg-white/90 hover:bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center shadow-md">
                                     <i class="ri-arrow-right-line"></i>
                                 </button>
                                 
@@ -912,13 +957,48 @@
     
     <script id="carousel-script">
         document.addEventListener('DOMContentLoaded', function() {
+            const carouselContainer = document.querySelector('.carousel-container');
             const carouselSlides = document.getElementById('carousel-slides');
             const prevBtn = document.querySelector('.carousel-prev');
             const nextBtn = document.querySelector('.carousel-next');
             const indicators = document.querySelectorAll('.carousel-indicator');
+            const slides = document.querySelectorAll('.carousel-slide img');
             
             let currentSlide = 0;
             const totalSlides = 4;
+            let autoPlayInterval;
+            
+            // Wait for all images to load
+            function waitForImages() {
+                const imagePromises = Array.from(slides).map(img => {
+                    return new Promise((resolve) => {
+                        if (img.complete) {
+                            resolve();
+                        } else {
+                            img.onload = resolve;
+                            img.onerror = resolve; // Still resolve on error to continue
+                        }
+                    });
+                });
+                
+                return Promise.all(imagePromises);
+            }
+            
+            function updateCarouselHeight() {
+                const currentImg = slides[currentSlide];
+                if (currentImg && currentImg.complete) {
+                    // Get the natural dimensions and calculate actual display height
+                    const containerWidth = carouselContainer.offsetWidth;
+                    const imgNaturalWidth = currentImg.naturalWidth;
+                    const imgNaturalHeight = currentImg.naturalHeight;
+                    
+                    // Calculate the actual height based on container width and image aspect ratio
+                    const aspectRatio = imgNaturalHeight / imgNaturalWidth;
+                    const actualHeight = containerWidth * aspectRatio;
+                    
+                    carouselContainer.style.height = actualHeight + 'px';
+                }
+            }
             
             function updateCarousel() {
                 const translateX = -currentSlide * 100;
@@ -928,6 +1008,9 @@
                 indicators.forEach((indicator, index) => {
                     indicator.classList.toggle('active', index === currentSlide);
                 });
+                
+                // Update container height immediately for better responsiveness
+                updateCarouselHeight();
             }
             
             function nextSlide() {
@@ -945,19 +1028,53 @@
                 updateCarousel();
             }
             
-            // Event listeners
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(nextSlide, 5000);
+            }
             
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => goToSlide(index));
+            function stopAutoPlay() {
+                if (autoPlayInterval) {
+                    clearInterval(autoPlayInterval);
+                }
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', () => {
+                stopAutoPlay();
+                nextSlide();
+                startAutoPlay();
             });
             
-            // Auto-play carousel every 5 seconds
-            setInterval(nextSlide, 5000);
+            prevBtn.addEventListener('click', () => {
+                stopAutoPlay();
+                prevSlide();
+                startAutoPlay();
+            });
             
-            // Initialize
-            updateCarousel();
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    stopAutoPlay();
+                    goToSlide(index);
+                    startAutoPlay();
+                });
+            });
+            
+            // Pause auto-play on hover
+            carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+            carouselContainer.addEventListener('mouseleave', startAutoPlay);
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                updateCarouselHeight();
+            });
+            
+            // Initialize after images are loaded
+            waitForImages().then(() => {
+                // Set initial height before showing carousel
+                updateCarouselHeight();
+                updateCarousel();
+                startAutoPlay();
+            });
         });
     </script>
     
