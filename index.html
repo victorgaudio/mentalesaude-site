@@ -89,6 +89,31 @@
                 margin-left: 2rem !important;
             }
         }
+        
+        /* Carousel Styles */
+        .carousel-container {
+            overflow: hidden;
+        }
+        
+        .carousel-btn {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-container:hover .carousel-btn {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .carousel-indicator.active {
+            background-color: rgba(255, 255, 255, 1) !important;
+            transform: scale(1.2);
+        }
+        
+        .carousel-indicator:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
     </style>
 </head>
 <body class="bg-beige text-gray-800">
@@ -280,8 +305,41 @@
                     <div class="relative">
                         <div class="absolute -top-4 -left-4 w-24 h-24 bg-primary bg-opacity-10 rounded-lg"></div>
                         <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary bg-opacity-10 rounded-lg"></div>
+                        
+                        <!-- Carrossel -->
                         <div class="relative z-10 rounded-lg overflow-hidden shadow-lg">
-                            <img src="img/platform-interface.jpg" alt="Plataforma Mental&Saúde" class="w-full h-auto">
+                            <div class="carousel-container relative">
+                                <div class="carousel-slides flex transition-transform duration-500 ease-in-out" id="carousel-slides">
+                                    <div class="carousel-slide w-full flex-shrink-0">
+                                        <img src="img/MentaleSistemaTela01.jpeg" alt="Plataforma Mental&Saúde - Tela 1" class="w-full h-auto">
+                                    </div>
+                                    <div class="carousel-slide w-full flex-shrink-0">
+                                        <img src="img/MentaleSistemaTela02.png" alt="Plataforma Mental&Saúde - Tela 2" class="w-full h-auto">
+                                    </div>
+                                    <div class="carousel-slide w-full flex-shrink-0">
+                                        <img src="img/MentaleSistemaTela03.png" alt="Plataforma Mental&Saúde - Tela 3" class="w-full h-auto">
+                                    </div>
+                                    <div class="carousel-slide w-full flex-shrink-0">
+                                        <img src="img/MentaleSistemaTela04.jpeg" alt="Plataforma Mental&Saúde - Tela 4" class="w-full h-auto">
+                                    </div>
+                                </div>
+                                
+                                <!-- Setas de navegação -->
+                                <button class="carousel-btn carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center shadow-md transition-all z-10">
+                                    <i class="ri-arrow-left-line"></i>
+                                </button>
+                                <button class="carousel-btn carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center shadow-md transition-all z-10">
+                                    <i class="ri-arrow-right-line"></i>
+                                </button>
+                                
+                                <!-- Indicadores -->
+                                <div class="carousel-indicators absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                                    <button class="carousel-indicator w-3 h-3 rounded-full bg-white/70 transition-all" data-slide="0"></button>
+                                    <button class="carousel-indicator w-3 h-3 rounded-full bg-white/70 transition-all" data-slide="1"></button>
+                                    <button class="carousel-indicator w-3 h-3 rounded-full bg-white/70 transition-all" data-slide="2"></button>
+                                    <button class="carousel-indicator w-3 h-3 rounded-full bg-white/70 transition-all" data-slide="3"></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -849,6 +907,57 @@
                     }
                 });
             }
+        });
+    </script>
+    
+    <script id="carousel-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselSlides = document.getElementById('carousel-slides');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            
+            let currentSlide = 0;
+            const totalSlides = 4;
+            
+            function updateCarousel() {
+                const translateX = -currentSlide * 100;
+                carouselSlides.style.transform = `translateX(${translateX}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentSlide);
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+            
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateCarousel();
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => goToSlide(index));
+            });
+            
+            // Auto-play carousel every 5 seconds
+            setInterval(nextSlide, 5000);
+            
+            // Initialize
+            updateCarousel();
         });
     </script>
     
