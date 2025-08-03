@@ -159,6 +159,242 @@
                 visibility: visible;
             }
         }
+        
+        /* Screen Transition Styles */
+        .screen-transition-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+            position: relative;
+        }
+        
+        .screen-wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+        
+        .screen-form, .screen-submit {
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(44, 65, 86, 0.15);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screen-form {
+            position: relative;
+            width: 65%;
+            z-index: 2;
+            left: 0;
+        }
+        
+        .screen-submit {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 65%;
+            z-index: 1;
+        }
+        
+        /* Hover Effects */
+        .screen-wrapper:hover .screen-form {
+            z-index: 1;
+            transform: translateX(-15px) scale(0.98);
+            box-shadow: 0 8px 25px rgba(44, 65, 86, 0.1);
+        }
+        
+        .screen-wrapper:hover .screen-submit {
+            z-index: 2;
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(44, 65, 86, 0.2);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .screen-transition-container {
+                min-height: 400px;
+            }
+            
+            .screen-wrapper {
+                width: 95%;
+                flex-direction: column;
+            }
+            
+            .screen-form, .screen-submit {
+                position: relative;
+                width: 100%;
+                transform: none !important;
+                margin-bottom: 20px;
+            }
+            
+            .screen-wrapper:hover .screen-form,
+            .screen-wrapper:hover .screen-submit {
+                transform: none !important;
+            }
+        }
+        
+        /* Auto Animation Option */
+        .screen-wrapper-auto {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .screen-form-auto, .screen-submit-auto {
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(44, 65, 86, 0.15);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screen-form-auto {
+            position: relative;
+            width: 65%;
+            z-index: 2;
+            opacity: 1;
+        }
+        
+        .screen-submit-auto {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 65%;
+            z-index: 1;
+            opacity: 0.3;
+            transform: translateY(-50%);
+        }
+        
+        /* Auto Animation Keyframes */
+        @keyframes screenCycle {
+            0%, 45% {
+                opacity: 1;
+                z-index: 2;
+                transform: translateX(0) scale(1);
+            }
+            50%, 95% {
+                opacity: 0.3;
+                z-index: 1;
+                transform: translateX(-15px) scale(0.98);
+            }
+            100% {
+                opacity: 1;
+                z-index: 2;
+                transform: translateX(0) scale(1);
+            }
+        }
+        
+        @keyframes screenCycleSubmit {
+            0%, 45% {
+                opacity: 0.3;
+                z-index: 1;
+                transform: translateY(-50%) translateX(0) scale(0.98);
+            }
+            50%, 95% {
+                opacity: 1;
+                z-index: 2;
+                transform: translateY(-50%) translateX(10px) scale(1.02);
+            }
+            100% {
+                opacity: 0.3;
+                z-index: 1;
+                transform: translateY(-50%) translateX(0) scale(0.98);
+            }
+        }
+        
+        .screen-form-auto {
+            animation: screenCycle 6s infinite;
+        }
+        
+        .screen-submit-auto {
+            animation: screenCycleSubmit 6s infinite;
+        }
+        
+        /* Scroll Triggered Option */
+        .screen-wrapper-scroll {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .screen-form-scroll, .screen-submit-scroll {
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(44, 65, 86, 0.15);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screen-form-scroll {
+            position: relative;
+            width: 65%;
+            z-index: 2;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        
+        .screen-submit-scroll {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 65%;
+            z-index: 1;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        
+        /* Scroll Trigger Active States */
+        .screen-wrapper-scroll.active .screen-form-scroll {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 0.3s;
+        }
+        
+        .screen-wrapper-scroll.active .screen-submit-scroll {
+            opacity: 0.4;
+            transform: translateX(0);
+            transition-delay: 0.8s;
+        }
+        
+        .screen-wrapper-scroll.active.phase-2 .screen-form-scroll {
+            opacity: 0.4;
+            transform: translateX(-15px) scale(0.98);
+            z-index: 1;
+            transition-delay: 2s;
+        }
+        
+        .screen-wrapper-scroll.active.phase-2 .screen-submit-scroll {
+            opacity: 1;
+            transform: translateX(10px) scale(1.02);
+            z-index: 2;
+            transition-delay: 2s;
+        }
+        
+        /* Mobile for new options */
+        @media (max-width: 768px) {
+            .screen-wrapper-auto, .screen-wrapper-scroll {
+                width: 95%;
+                flex-direction: column;
+            }
+            
+            .screen-form-auto, .screen-submit-auto,
+            .screen-form-scroll, .screen-submit-scroll {
+                position: relative;
+                width: 100%;
+                transform: none !important;
+                margin-bottom: 20px;
+                animation: none !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-beige text-gray-800">
@@ -412,6 +648,28 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Experiência do Usuário -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h3 class="font-bree text-3xl font-semibold text-primary mb-4">Experiência do Usuário</h3>
+                <p class="text-gray-600 max-w-2xl mx-auto">Fluxo intuitivo e simples: do preenchimento da avaliação até a conclusão do processo</p>
+            </div>
+            
+            <div class="screen-transition-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="screen-wrapper-auto">
+                    <img src="img/MentaleSistemaTela05b.jpeg" 
+                         alt="Formulário de Avaliação - Auto" 
+                         class="screen-form-auto" />
+                    <img src="img/MentaleSistemaTela05a.jpeg" 
+                         alt="Botão de Envio - Auto" 
+                         class="screen-submit-auto" />
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1069,6 +1327,47 @@
                 updateCarousel();
                 startAutoPlay();
             });
+        });
+    </script>
+    
+    <script id="scroll-trigger-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollTriggerElement = document.getElementById('scroll-trigger-demo');
+            
+            if (scrollTriggerElement) {
+                let animationTriggered = false;
+                
+                function checkScroll() {
+                    const elementTop = scrollTriggerElement.getBoundingClientRect().top;
+                    const elementHeight = scrollTriggerElement.offsetHeight;
+                    const windowHeight = window.innerHeight;
+                    
+                    // Trigger when element is 70% visible
+                    if (elementTop < windowHeight * 0.7 && elementTop > -elementHeight * 0.3 && !animationTriggered) {
+                        animationTriggered = true;
+                        
+                        // Add active class
+                        scrollTriggerElement.classList.add('active');
+                        
+                        // Add phase-2 after 2.5 seconds
+                        setTimeout(() => {
+                            scrollTriggerElement.classList.add('phase-2');
+                        }, 2500);
+                        
+                        // Reset animation after 6 seconds for demo purposes
+                        setTimeout(() => {
+                            scrollTriggerElement.classList.remove('active', 'phase-2');
+                            animationTriggered = false;
+                        }, 6000);
+                    }
+                }
+                
+                // Listen for scroll events
+                window.addEventListener('scroll', checkScroll);
+                
+                // Check on load in case element is already in view
+                checkScroll();
+            }
         });
     </script>
     
